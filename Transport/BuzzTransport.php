@@ -49,7 +49,7 @@ class BuzzTransport implements Transport, LoggerAwareInterface
         $response = $this->browser->post($url, $headers, $requestBody);
 
 
-        $responseContent = $response->getContent();
+        $responseContent = $response->getBody()->getContents();
         if ($response->getStatusCode() !== 200) {
             $this->logger->error(sprintf(
                     '[christiaan/zohocrmclient] fault "%s" for request "%s" with params %s',
